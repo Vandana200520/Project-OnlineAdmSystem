@@ -14,9 +14,9 @@
 	$marksTwelth = $_POST['marks_12th'];
 
     $DMC_10th = $_POST['10th-DMC'];
-	$DMC_10th = $_POST['12th-DMC'];
+	$DMC_12th = $_POST['12th-DMC'];
 	$migration = $_POST['migration'];
-	$character = $_POST['character'];
+	$characterCertificate = $_POST['character-certificate'];
 	$test_scores = $_POST['test-scores'];
 
     $fatherName = $_POST['father-name'];
@@ -40,7 +40,75 @@
 
 	// Database connection
 	$conn= mysqli_connect('localhost','root','');
-	$query = "insert into `test`.`registration`(`fullname` ,`dob` ,`gender`, `nationality`, `email`, `phone`) values ('$fullName', $dob, '$gender', '$nationality','$email',  $phone)";
+	$query = "
+
+	INSERT INTO `registration`.`form` (
+		full_name,
+		dob,
+		gender,
+		nationality,
+		email,
+		phone,
+		school_name,
+		passing_year,
+		marks_tenth,
+		sr_school_name,
+		sr_passing_year,
+		marks_twelth,
+		dmc_10th,
+		dmc_12th,
+		migration,
+		character-certificate,
+		test_scores,
+		father_name,
+		father_occupation,
+		father_contact,
+		mother_name,
+		mother_occupation,
+		mother_contact,
+		income,
+		course,
+		disability,
+		activities,
+		birth_certificate,
+		aadhar,
+		domicile,
+		family_id,
+		facility
+	) VALUES (
+		'$fullName',
+		'$dob',
+		'$gender',
+		'$nationality',
+		'$email',
+		'$phone',
+		'$schoolName',
+		'$passingYear',
+		'$marksTenth',
+		'$srSchoolName',
+		'$srPassingYear',
+		'$marksTwelth',
+		'$DMC_10th',
+		'$DMC_12th', 
+		'$migration',
+		'$characterCertificate',
+		'$test_scores',
+		'$fatherName',
+		'$fatherOcc',
+		'$fatherCont',
+		'$motherName',
+		'$motherOcc',
+		'$motherCont',
+		'$income',
+		'$course',
+		'$disability',
+		'$activities',
+		'$birthCertificate',
+		'$aadhar',
+		'$domicile',
+		'$familyId',
+		'$facility'
+	)";
 
 	$result = mysqli_query($conn, $query);
 	if($result) {
